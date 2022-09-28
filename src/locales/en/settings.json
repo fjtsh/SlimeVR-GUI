@@ -1,0 +1,38 @@
+{
+  "steamVr": {
+    "title": "SteamVR",
+    "steamVrTrackers": "SteamVR trackers",
+    "description": "Enable or disable specific tracking parts. <1></1>Useful if you want more control over what SlimeVR does."
+  },
+  "trackerMechanics": {
+    "title": "Tracker mechanics",
+    "filtering": {
+      "title": "Filtering",
+      "description": "Choose the filtering type for your trackers. <1></1>Extrapolation predicts movement while interpolation smoothens movement.",
+      "noFiltering": {
+        "title": "No filtering",
+        "description": "Use measurements as is, will not do any filtering."
+      },
+      "smoothing": {
+        "title": "Smoothing",
+        "description": "Smooths the movements but adds some latency."
+      },
+      "prediction": {
+        "title": "Prediction",
+        "description": "Reduces latency and makes movements more snappy, but may increase jitter."
+      }
+    }
+  },
+  "interface": {
+    "title": "Interface",
+    "devMode": {
+      "title": "Developer Mode",
+      "description": "This mode can be useful if you need in-depth data or to interact<1></1>with connected trackers on a more advanced level"
+    }
+  },
+  "serialConsole": {
+    "title": "Serial Console",
+    "description": "This is a live information feed for serial communication. May be useful if you need to know the firmware is acting up.",
+    "lostConnection": "Connection to serial lost, Reconnecting..."
+  }
+}

@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAutobone } from '../../../../../hooks/autobone';
 import { ProgressBar } from '../../../../commons/ProgressBar';
 import { TipBox } from '../../../../commons/TipBox';
 import { Typography } from '../../../../commons/Typography';
 
 export function Recording({ nextStep }: { nextStep: () => void }) {
+  const { t } = useTranslation('onboarding');
   const { progress, hasCalibration, hasRecording } = useAutobone();
 
   useEffect(() => {
@@ -21,32 +23,61 @@ export function Recording({ nextStep }: { nextStep: () => void }) {
           <Typography color="text-status-critical">REC</Typography>
         </div>
         <Typography variant="section-title">
-          Recording in progress...
+          {t('autoboneSteps.recording.title', 'Recording in progress...')}
         </Typography>
-        <Typography color="secondary">Make the moves shown below:</Typography>
+        <Typography color="secondary">
+          {t(
+            'autoboneSteps.recording.description',
+            'Make the moves shown below:'
+          )}
+        </Typography>
       </div>
       <div>
-        <Typography color="secondary">Bend knees a few times.</Typography>
-        <Typography color="secondary">Sit on a chair then stand up.</Typography>
         <Typography color="secondary">
-          Twist upper body left, then bend right.
+          {t('autoboneSteps.recording.bendKnee', 'Bend knees a few times.')}
         </Typography>
         <Typography color="secondary">
-          Twist upper body right, then bend left.
+          {t(
+            'autoboneSteps.recording.standUp',
+            'Sit on a chair then stand up.'
+          )}
         </Typography>
         <Typography color="secondary">
-          Wiggle around until timer ends.
+          {t(
+            'autoboneSteps.recording.twistUpperBodyLeftThenBendRight',
+            'Twist upper body left, then bend right.'
+          )}
+        </Typography>
+        <Typography color="secondary">
+          {t(
+            'autoboneSteps.recording.twistUpperBodyRightThenBendLeft',
+            'Twist upper body right, then bend left.'
+          )}
+        </Typography>
+        <Typography color="secondary">
+          {t(
+            'autoboneSteps.recording.wiggleAround',
+            'Wiggle around until timer ends.'
+          )}
         </Typography>
       </div>
       <div className="flex">
-        <TipBox>Ensure your heels do not move during recording!</TipBox>
+        <TipBox>
+          {t(
+            'autoboneSteps.recording.doNotMoveYourHeels',
+            'Ensure your heels do not move during recording!'
+          )}
+        </TipBox>
       </div>
       <div className="flex flex-col gap-2 items-center w-full max-w-[150px]">
         <ProgressBar progress={progress} height={2}></ProgressBar>
         <Typography color="secondary">
           {!hasCalibration && hasRecording
-            ? 'Processing the result'
-            : '15 seconds left'}
+            ? t(
+                'autoboneSteps.recording.processingTheResult',
+                'Processing the result'
+              )
+            : t('autoboneSteps.recording.15SecLeft', '15 seconds left')}
         </Typography>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Quaternion } from 'math3d';
 import { useMemo, useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { AssignTrackerRequestT, BodyPart, RpcMessage } from 'solarxr-protocol';
 import { FlatDeviceTracker } from '../../../../hooks/app';
 import { useOnboarding } from '../../../../hooks/onboarding';
@@ -14,6 +15,7 @@ import { BodyAssignment } from '../../BodyAssignment';
 import { MountingSelectionMenu } from './MountingSelectionMenu';
 
 export function ManualMountingPage() {
+  const { t } = useTranslation('onboarding');
   const { applyProgress, skipSetup, state } = useOnboarding();
   const { sendRPCPacket } = useWebsocketAPI();
 
@@ -67,16 +69,23 @@ export function ManualMountingPage() {
             <div className="flex flex-col w-full max-w-md gap-3">
               {!state.alonePage && (
                 <ArrowLink to="/onboarding/enter-vr" direction="left">
-                  Go Back to Enter VR
+                  {t('manualMount.goBack', 'Go Back to Enter VR')}
                 </ArrowLink>
               )}
-              <Typography variant="main-title">Manual Mounting</Typography>
+              <Typography variant="main-title">
+                {t('manualMount.title', 'Manual Mounting')}
+              </Typography>
               <Typography color="secondary">
-                Click on every tracker and select which way they are mounted
+                {t(
+                  'manualMount.description',
+                  'Click on every tracker and select which way they are mounted'
+                )}
               </Typography>
               <TipBox>
-                Not sure which tracker is which? Shake a tracker and it will
-                highlight the corresponding item.
+                {t(
+                  'common:tips.shakeTracker',
+                  'Not sure which tracker is which? Shake a tracker and it will highlight the corresponding item.'
+                )}
               </TipBox>
             </div>
             <div className="flex flex-col flex-grow gap-3 rounded-xl fill-background-50">
@@ -92,7 +101,7 @@ export function ManualMountingPage() {
           <div className="flex flex-grow">
             {!state.alonePage && (
               <Button variant="secondary" to="/" onClick={skipSetup}>
-                Skip setup
+                {t('common:skipSetup', 'Skip setup')}
               </Button>
             )}
           </div>
@@ -102,11 +111,11 @@ export function ManualMountingPage() {
               state={{ alonePage: state.alonePage }}
               to="/onboarding/mounting/auto"
             >
-              Automatic mounting
+              {t('manualMount.automaticMounting', 'Automatic mounting')}
             </Button>
             {!state.alonePage && (
               <Button variant="primary" to="/onboarding/reset-tutorial">
-                Next step
+                {t('manualMount.gotoNext', 'Next step')}
               </Button>
             )}
           </div>

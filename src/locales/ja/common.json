@@ -1,0 +1,10 @@
+{
+  "previousStep": "前のステップに戻る",
+  "tips": {
+    "shakeTracker": "トラッカーを付ける箇所がわからない場合，トラッカーを振ると対応する箇所がハイライトされます"
+  },
+  "skipSetup": "セットアップをスキップ",
+  "continue": "続ける",
+  "wip": "準備中",
+  "showAdvAssignLoc": "高度な割り当て場所の表示"
+}

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 import {
   CloseSerialRequestT,
   OpenSerialRequestT,
@@ -120,19 +121,27 @@ export function ConnectTrackersPage() {
     };
   }, [isSerialOpen, sendRPCPacket]);
 
+  const { t } = useTranslation('onboarding');
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex gap-10 w-full max-w-7xl ">
         <div className="flex flex-col w-full max-w-sm">
           <ArrowLink to="/onboarding/wifi-creds">
-            Go Back to WiFi credentials
+            <Trans i18nKey={'onboarding:connectTracker.goBackTo'}>
+              Go Back to WiFi credentials
+            </Trans>
           </ArrowLink>
-          <Typography variant="main-title">Connect trackers</Typography>
-          <Typography color="secondary">
-            Now onto the fun part, connecting all the trackers!
+          <Typography variant="main-title">
+            <Trans i18nKey={'onboarding:connectTracker.title'}>
+              Connect trackers
+            </Trans>
           </Typography>
           <Typography color="secondary">
-            Simply connect all that aren't connected yet, through a USB port.
+            <Trans i18nKey={'onboarding:connectTracker.description'}>
+              Now onto the fun part, connecting all the trackers! <br />
+              Simply connect all that aren't connected yet, through a USB port.
+            </Trans>
           </Typography>
           <div className="flex flex-col gap-2 py-5">
             {/* <ArrowLink
@@ -143,12 +152,17 @@ export function ConnectTrackersPage() {
               I have other types of trackers
             </ArrowLink> */}
             <ArrowLink to="/settings/serial" direction="right" variant="boxed">
-              I'm having trouble connecting!
+              {t(
+                'connectTracker.gotoSerialConsole',
+                "I'm having trouble connecting!"
+              )}
             </ArrowLink>
           </div>
           <TipBox>
-            Not sure which tracker is which? Shake a tracker and it will
-            highlight the corresponding item.
+            <Trans i18nKey={'common:tips.shakeTracker'}>
+              Not sure which tracker is which? Shake a tracker and it will
+              highlight the corresponding item.
+            </Trans>
           </TipBox>
 
           <div
@@ -172,7 +186,11 @@ export function ConnectTrackersPage() {
         </div>
         <div className="flex flex-col flex-grow">
           <Typography color="secondary" bold>
-            {connectedTrackers.length} trackers connected
+            {t(
+              'connectTracker.nTrackersConnected',
+              '{{number}} trackers connected',
+              { number: connectedTrackers.length }
+            )}
           </Typography>
 
           <div
@@ -209,12 +227,12 @@ export function ConnectTrackersPage() {
         <div className="w-full flex">
           <div className="flex flex-grow">
             <Button variant="secondary" to="/" onClick={skipSetup}>
-              Skip setup
+              {t('common:skipSetup', 'Skip setup')}
             </Button>
           </div>
           <div className="flex gap-3">
             <Button variant="primary" to="/onboarding/trackers-assign">
-              I connected all my trackers
+              {t('connectTracker.gotoNext', 'I connected all my trackers')}
             </Button>
           </div>
         </div>

@@ -3,9 +3,11 @@ import { useOnboarding } from '../../../hooks/onboarding';
 import { Button } from '../../commons/Button';
 import { SlimeVRIcon } from '../../commons/icon/SimevrIcon';
 import { Typography } from '../../commons/Typography';
+import { Trans, useTranslation } from 'react-i18next';
 
 export function HomePage() {
   const { applyProgress, skipSetup } = useOnboarding();
+  const { t } = useTranslation('onboarding');
 
   applyProgress(0.1);
 
@@ -13,16 +15,24 @@ export function HomePage() {
     <div className="flex flex-col gap-5 h-full items-center w-full justify-center">
       <div className="flex flex-col gap-5 items-center z-10">
         <SlimeVRIcon></SlimeVRIcon>
-        <Typography variant="main-title">Welcome to SlimeVR</Typography>
+        <Typography variant="main-title">
+          {t('home.welcome', 'Welcome to SlimeVR')}
+        </Typography>
         <div className="flex flex-col items-center">
-          <Typography color="secondary">Bringing full-body tracking</Typography>
-          <Typography color="secondary">to everyone</Typography>
+          <Typography color="secondary">
+            <Trans i18nKey={'onboarding:home.description'}>
+              Bringing full-body tracking <br />
+              to everyone
+            </Trans>
+          </Typography>
         </div>
         <Button variant="primary" to="/onboarding/wifi-creds">
-          Lets get setup!
+          {t('home.doSetup', 'Lets get setup!')}
         </Button>
         <NavLink to="/" onClick={skipSetup}>
-          <Typography color="secondary">Skip setup</Typography>
+          <Typography color="secondary">
+            {t('common:skipSetup', 'Skip setup')}
+          </Typography>
         </NavLink>
       </div>
 

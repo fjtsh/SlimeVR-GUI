@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAutobone } from '../../../../../hooks/autobone';
 import { Button } from '../../../../commons/Button';
 import { Typography } from '../../../../commons/Typography';
@@ -13,6 +14,8 @@ export function VerifyResultsStep({
   prevStep: () => void;
   variant: 'onboarding' | 'alone';
 }) {
+  const { t } = useTranslation('onboarding');
+
   const {
     startRecording,
     hasCalibration,
@@ -36,17 +39,22 @@ export function VerifyResultsStep({
       <div className="flex flex-col flex-grow justify-between">
         <div className="flex flex-col gap-4 max-w-sm">
           <Typography variant="main-title" bold>
-            Verify results
+            {t('autoboneSteps.verifyResult.title', 'Verify results')}
           </Typography>
           <div>
             <Typography color="secondary">
-              Check the results below, do they look correct?
+              {t(
+                'autoboneSteps.verifyResult.description',
+                'Check the results below, do they look correct?'
+              )}
             </Typography>
           </div>
         </div>
         <div className="flex w-full items-center flex-col">
           <div className="flex flex-col pt-1 gap-2 justify-center w-full max-w-xs">
-            <Typography bold>Recording results</Typography>
+            <Typography bold>
+              {t('autoboneSteps.verifyResult.recResults', 'Recording results')}
+            </Typography>
             <div
               className={classNames(
                 'flex flex-col  w-full p-4 rounded-md gap-2',
@@ -61,7 +69,12 @@ export function VerifyResultsStep({
                 </div>
               ))}
               {!hasCalibration && hasRecording && (
-                <Typography>Processing recording...</Typography>
+                <Typography>
+                  {t(
+                    'autoboneSteps.verifyResult.prosessing',
+                    'Processing recording...'
+                  )}
+                </Typography>
               )}
             </div>
           </div>
@@ -71,10 +84,10 @@ export function VerifyResultsStep({
             variant={variant === 'onboarding' ? 'secondary' : 'tierciary'}
             onClick={redo}
           >
-            Redo recording
+            {t('autoboneSteps.verifyResult.redo', 'Redo recording')}
           </Button>
           <Button variant="primary" onClick={apply}>
-            They're correct
+            {t('autoboneSteps.verifyResult.gotoNext', "They're correct")}
           </Button>
         </div>
       </div>

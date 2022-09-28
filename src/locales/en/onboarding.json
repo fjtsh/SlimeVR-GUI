@@ -1,0 +1,120 @@
+{
+  "autoboneSteps": {
+    "done": {
+      "title": "Body measured and saved.",
+      "description": "Your body proportions calibration is complete!"
+    },
+    "preparation": {
+      "title": "Preparation",
+      "description": "Place a chair directly behind you inside your play space. <1></1>Be prepared to sit down during the autobone setup.",
+      "gotoNext": "I am in front of a chair"
+    },
+    "putTrackersOn": {
+      "title": "Put on your trackers",
+      "procedure": "To calibrate your proportions, we're gonna use the <1></1>trackers you just assigned. Put on all your trackers, <3></3>you can see which are which in the figure to the right.",
+      "gotoNext": "I have all my trackers on"
+    },
+    "recording": {
+      "title": "Recording in progress...",
+      "description": "Make the moves shown below:",
+      "bendKnee": "Bend knees a few times.",
+      "standUp": "Sit on a chair then stand up.",
+      "twistUpperBodyLeftThenBendRight": "Twist upper body left, then bend right.",
+      "twistUpperBodyRightThenBendLeft": "Twist upper body right, then bend left.",
+      "wiggleAround": "Wiggle around until timer ends.",
+      "doNotMoveYourHeels": "Ensure your heels do not move during recording!",
+      "processingTheResult": "Processing the result",
+      "15SecLeft": "15 seconds left"
+    },
+    "startRecording": {
+      "title": "Get ready to move",
+      "description": "We're now going to record some specific poses and <1></1>moves. These will be prompted in the next screen. <3></3>Be ready to start when the button is pressed!",
+      "doNotMoveYourHeels": "Make sure you do not move your heels, they must stay at the same place while recording.",
+      "gotoNext": "Start Recording"
+    },
+    "verifyResult": {
+      "title": "Verify results",
+      "description": "Check the results below, do they look correct?",
+      "recResults": "Recording results",
+      "prosessing": "Processing recording...",
+      "redo": "Redo recording",
+      "gotoNext": "They're correct"
+    }
+  },
+  "automaticPropotions": {
+    "goBack": "Go Back to Reset tutorial",
+    "title": "Measure your body",
+    "description": "For SlimeVR trackers to work, we need to know the length of your bones. <1></1>This short calibration will measure it for you.",
+    "manualCalibration": "Manual calibration"
+  },
+  "manualPropotions": {
+    "goBack": "Go Back to Reset tutorial",
+    "title": "Manual Body Proportions",
+    "automaticCalibration": "Automatic calibration"
+  },
+  "connectTracker": {
+    "goBackTo": "Go Back to WiFi credentials",
+    "title": "Connect trackers",
+    "description": "Now onto the fun part, connecting all the trackers! <1></1>Simply connect all that aren't connected yet, through a USB port.",
+    "gotoSerialConsole": "I'm having trouble connecting!",
+    "nTrackersConnected": "{{number}} trackers connected",
+    "gotoNext": "I connected all my trackers"
+  },
+  "done": {
+    "title": "You're all set!",
+    "body": "Enjoy your full body experience",
+    "close": "Close the guide"
+  },
+  "enterVr": {
+    "goBack": "Go Back to Tracker assignent",
+    "title": "Time to enter VR!",
+    "description": "Put on all your trackers and then enter VR!",
+    "ready": "I'm ready"
+  },
+  "home": {
+    "welcome": "Welcome to SlimeVR",
+    "description": "Bringing full-body tracking <1></1>to everyone",
+    "doSetup": "Lets get setup!"
+  },
+  "autoMount": {
+    "goBack": "Go Back to Enter VR",
+    "title": "Mount calibration!",
+    "description": "This feature isn't done, just choose manual mounting.",
+    "manuallySetMounting": "Manually set mounting",
+    "gotoNext": "Next step"
+  },
+  "manualMount": {
+    "goBack": "Go Back to Enter VR",
+    "title": "Manual Mounting",
+    "description": "Click on every tracker and select which way they are mounted",
+    "automaticMounting": "Automatic mounting",
+    "gotoNext": "Next step"
+  },
+  "mountSelection": {
+    "title": "Where do you want this tracker to be?",
+    "close": "Close"
+  },
+  "resetTutorial": {
+    "goBack": "Go Back to Mounting calibration",
+    "description": "This feature isn't done, just press continue",
+    "gotoNext": "Continue"
+  },
+  "assignTracker": {
+    "goBack": "Go Back to Wifi Credentials",
+    "title": "Assign trackers",
+    "description": "Let's choose which tracker goes where. Click on a location where you want to place a tracker",
+    "numberOfAssignedTracker": "<0>{{assignedCount}}</0><1>of {{trackerCount}} trackers assigned</1>",
+    "gotoNext": "I Assigned all the trackers"
+  },
+  "trackerSelection": {
+    "whichTrackerToAssignTo": "Which tracker to assign to the {{bodyPart}}?",
+    "doNotAssign": "Do not assign"
+  },
+  "wifiCreds": {
+    "goBack": "Go Back to introduction",
+    "title": "Input WiFi credentials",
+    "description": "The Trackers will use these credentials to connect wirelessly<1></1>please use the credentials that you are currently connected to",
+    "skipWifiSetting": "Skip wifi settings",
+    "goNext": "Submit!"
+  }
+}

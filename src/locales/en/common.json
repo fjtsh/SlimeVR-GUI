@@ -1,0 +1,10 @@
+{
+  "previousStep": "Previous step",
+  "tips": {
+    "shakeTracker": "Not sure which tracker is which? Shake a tracker and it will highlight the corresponding item."
+  },
+  "skipSetup": "Skip setup",
+  "continue": "Continue",
+  "wip": "Work in progress",
+  "showAdvAssignLoc": "Show advanced assign locations"
+}

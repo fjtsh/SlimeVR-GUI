@@ -1,0 +1,38 @@
+{
+  "steamVr": {
+    "title": "SteamVR",
+    "steamVrTrackers": "SteamVRトラッカー",
+    "description": "特定のトラッキングしている部位を有効化／無効化できます。より細かくSlimeVRを制御したいときに役立ちます。"
+  },
+  "trackerMechanics": {
+    "title": "トラッカーメカニクス",
+    "filtering": {
+      "title": "フィルタリング",
+      "description": "フィルタリングの種類を選択できます。 <1></1>Smoothingモードでは，ある区間とデータをもとに動きを滑らかにし，Predictionモードでは，ある区間のデータを活用することで動きを予測します。",
+      "noFiltering": {
+        "title": "No filtering",
+        "description": "計測された結果をそのまま使い，何もフィルタをかけません。"
+      },
+      "smoothing": {
+        "title": "Smoothing",
+        "description": "動きが滑らかになりますが，多少の遅延が発生します。"
+      },
+      "prediction": {
+        "title": "Prediction",
+        "description": "遅延を抑えキビキビと動くようになりますが，その分細かく震えるような動きが発生します。"
+      }
+    }
+  },
+  "interface": {
+    "title": "インタフェース",
+    "devMode": {
+      "title": "開発者モード",
+      "description": "このモードは，より詳細なデータを必要とするときや接続したトラッカーとより高度なレベルでやり取りしたいときに役に立ちます。"
+    }
+  },
+  "serialConsole": {
+    "title": "シリアルコンソール",
+    "description": "現在行われているシリアル通信の内容です。これはファームウェアが動作していることを知りたいときに役立ちます。",
+    "lostConnection": "シリアル接続がロストしました，再接続を試みています..."
+  }
+}

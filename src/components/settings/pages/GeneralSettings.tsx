@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 import {
   ChangeSettingsRequestT,
   FilteringSettingsT,
@@ -117,18 +118,24 @@ export function GeneralSettings() {
     }
   }, [state]);
 
+  const { t } = useTranslation('settings');
+
   return (
     <form className="flex flex-col gap-2 w-full" ref={pageRef}>
       <SettingsPageLayout icon={<SteamIcon></SteamIcon>} id="steamvr">
         <>
-          <Typography variant="main-title">SteamVR</Typography>
-          <Typography bold>SteamVR trackers</Typography>
+          <Typography variant="main-title">
+            {t('steamVr.title', 'SteamVR')}
+          </Typography>
+          <Typography bold>
+            {t('steamVr.steamVrTrackers', 'SteamVR trackers')}
+          </Typography>
           <div className="flex flex-col py-2">
             <Typography color="secondary">
-              Enable or disable specific tracking parts.
-            </Typography>
-            <Typography color="secondary">
-              Useful if you want more control over what SlimeVR does.
+              <Trans i18nKey={'settings:steamVr.description'}>
+                Enable or disable specific tracking parts. <br />
+                Useful if you want more control over what SlimeVR does.
+              </Trans>
             </Typography>
           </div>
           <div className="grid grid-cols-2 gap-3 pt-3">
@@ -172,15 +179,21 @@ export function GeneralSettings() {
       </SettingsPageLayout>
       <SettingsPageLayout icon={<WrenchIcon></WrenchIcon>} id="mechanics">
         <>
-          <Typography variant="main-title">Tracker mechanics</Typography>
-          <Typography bold>Filtering</Typography>
+          <Typography variant="main-title">
+            {t('trackerMechanics.title', 'Tracker mechanics')}
+          </Typography>
+          <Typography bold>
+            {t('trackerMechanics.filtering.title', 'Filtering')}
+          </Typography>
           <div className="flex flex-col pt-2 pb-4">
             <Typography color="secondary">
-              Choose the filtering type for your trackers.
-            </Typography>
-            <Typography color="secondary">
-              Extrapolation predicts movement while interpolation smoothens
-              movement.
+              <Trans
+                i18nKey={'settings:trackerMechanics.filtering.description'}
+              >
+                Choose the filtering type for your trackers. <br />
+                Extrapolation predicts movement while interpolation smoothens
+                movement.
+              </Trans>
             </Typography>
           </div>
           <Typography>Filtering type</Typography>
@@ -188,22 +201,40 @@ export function GeneralSettings() {
             <Radio
               control={control}
               name="filtering.type"
-              label="No filtering"
-              desciption="Use measurements as is, will not do any filtering."
+              label={t(
+                'trackerMechanics.filtering.noFiltering.title',
+                'No filtering'
+              )}
+              desciption={t(
+                'trackerMechanics.filtering.noFiltering.description',
+                'Use measurements as is, will not do any filtering.'
+              )}
               value={FilteringType.NONE}
             ></Radio>
             <Radio
               control={control}
               name="filtering.type"
-              label="Smoothing"
-              desciption="Smooths the movements but adds some latency."
+              label={t(
+                'trackerMechanics.filtering.smoothing.title',
+                'Smoothing'
+              )}
+              desciption={t(
+                'trackerMechanics.filtering.smoothing.description',
+                'Smooths the movements but adds some latency.'
+              )}
               value={FilteringType.INTERPOLATION}
             ></Radio>
             <Radio
               control={control}
               name="filtering.type"
-              label="Prediction"
-              desciption="Reduces latency and makes movements more snappy, but may increase jitter."
+              label={t(
+                'trackerMechanics.filtering.prediction.title',
+                'Prediction'
+              )}
+              desciption={t(
+                'trackerMechanics.filtering.prediction.description',
+                'Reduces latency and makes movements more snappy, but may increase jitter.'
+              )}
               value={FilteringType.EXTRAPOLATION}
             ></Radio>
           </div>
@@ -231,14 +262,19 @@ export function GeneralSettings() {
       </SettingsPageLayout>
       <SettingsPageLayout icon={<SquaresIcon></SquaresIcon>} id="interface">
         <>
-          <Typography variant="main-title">Interface</Typography>
-          <Typography bold>Developer Mode</Typography>
+          <Typography variant="main-title">
+            {t('interface.title', 'Interface')}
+          </Typography>
+          <Typography bold>
+            {t('interface.devMode.title', 'Developer Mode')}
+          </Typography>
           <div className="flex flex-col">
             <Typography color="secondary">
-              This mode can be useful if you need in-depth data or to interact
-            </Typography>
-            <Typography color="secondary">
-              with connected trackers on a more advanced level
+              <Trans i18nKey="settings:interface.devMode.description">
+                This mode can be useful if you need in-depth data or to interact
+                <br />
+                with connected trackers on a more advanced level
+              </Trans>
             </Typography>
           </div>
           <div className="grid sm:grid-cols-2 gap-3 pt-3">

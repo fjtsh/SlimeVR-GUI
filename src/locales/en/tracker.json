@@ -1,0 +1,32 @@
+{
+  "assignSingleTracker": {
+    "title": "Where do you want this tracker to be?",
+    "description": "Choose a location where you want this tracker to be assigned. Alternatively you can choose to manage all trackers at once instead of one by one.",
+    "gotoTrackerAssign": "Manage all trackers",
+    "unassignTracker": "Unassign tracker"
+  },
+  "setting": {
+    "manufacturer": "Manufacturer",
+    "displayName": "Display name",
+    "customName": "Custom name",
+    "goBack": "Go back to trackers list",
+    "title": "Tracker settings",
+    "assignment": {
+      "title": "Assignment",
+      "description": "What part of the body the tracker is assigned to.",
+      "edit": "Edit assignment"
+    }
+  },
+  "tracker": {
+    "position": {
+      "title": "Mounting position",
+      "description": "Where is the tracker mounted?",
+      "edit": "Edit mounting"
+    },
+    "name": {
+      "title": "Tracker name",
+      "description": "Give it a cute nickname :)",
+      "placeholder": "NightyBeast's left leg"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import ReactModal from 'react-modal';
+import { Trans, useTranslation } from 'react-i18next';
 import { BodyPart } from 'solarxr-protocol';
 import { Button } from '../commons/Button';
 import { CheckBox } from '../commons/Checkbox';
@@ -21,6 +22,7 @@ export function SingleTrackerBodyAssignmentMenu({
     defaultValues: { advanced: false },
   });
   const { advanced } = watch();
+  const { t } = useTranslation('tracker');
 
   return (
     <ReactModal
@@ -40,22 +42,34 @@ export function SingleTrackerBodyAssignmentMenu({
           <div className="flex gap-8">
             <div className="flex flex-col max-w-sm gap-3">
               <Typography variant="main-title" bold>
-                Where do you want this tracker to be?
+                {t(
+                  'assignSingleTracker.title',
+                  'Where do you want this tracker to be?'
+                )}
               </Typography>
               <Typography color="secondary">
-                Choose a location where you want this tracker to be assigned.
-                Alternatively you can choose to manage all trackers at once
-                instead of one by one.
+                {t(
+                  'assignSingleTracker.description',
+                  'Choose a location where you want this tracker to be assigned. \
+                  Alternatively you can choose to manage all trackers at once \
+                  instead of one by one.'
+                )}
               </Typography>
               <CheckBox
                 control={control}
-                label="Show advanced assign locations"
+                label={t(
+                  'common:showAdvAssignLoc',
+                  'Show advanced assign locations'
+                )}
                 name="advanced"
                 variant="toggle"
               ></CheckBox>
               <div className="flex">
                 <Button variant="secondary" to="/onboarding/trackers-assign">
-                  Manage all trackers
+                  {t(
+                    'assignSingleTracker.gotoTrackerAssign',
+                    'Manage all trackers'
+                  )}
                 </Button>
               </div>
             </div>
@@ -70,7 +84,7 @@ export function SingleTrackerBodyAssignmentMenu({
                   variant="secondary"
                   onClick={() => onRoleSelected(BodyPart.NONE)}
                 >
-                  Unassign tracker
+                  {t('assignSingleTracker.unassignTracker', 'Unassign tracker')}
                 </Button>
               </div>
             </div>

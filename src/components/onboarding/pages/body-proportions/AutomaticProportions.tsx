@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from 'react-i18next';
 import {
   AutoboneContextC,
   useProvideAutobone,
@@ -9,6 +10,8 @@ import { Typography } from '../../../commons/Typography';
 import { AutoboneStepper } from './AutoboneStepper';
 
 export function AutomaticProportionsPage() {
+  const { t } = useTranslation('onboarding');
+
   const { applyProgress, skipSetup, state } = useOnboarding();
   const context = useProvideAutobone();
 
@@ -21,17 +24,19 @@ export function AutomaticProportionsPage() {
           <div className="flex flex-col max-w-lg gap-3">
             {!state.alonePage && (
               <ArrowLink to="/onboarding/reset-tutorial" direction="left">
-                Go Back to Reset tutorial
+                {t('automaticPropotions.goBack', 'Go Back to Reset tutorial')}
               </ArrowLink>
             )}
-            <Typography variant="main-title">Measure your body</Typography>
+            <Typography variant="main-title">
+              {t('automaticPropotions.title', 'Measure your body')}
+            </Typography>
             <div>
               <Typography color="secondary">
-                For SlimeVR trackers to work, we need to know the length of your
-                bones.
-              </Typography>
-              <Typography color="secondary">
-                This short calibration will measure it for you.
+                <Trans i18nKey="onboarding:automaticPropotions.description">
+                  For SlimeVR trackers to work, we need to know the length of
+                  your bones. <br />
+                  This short calibration will measure it for you.
+                </Trans>
               </Typography>
             </div>
           </div>
@@ -45,7 +50,7 @@ export function AutomaticProportionsPage() {
           <div className="flex flex-grow">
             {!state.alonePage && (
               <Button variant="secondary" to="/" onClick={skipSetup}>
-                Skip setup
+                {t('common:skipSetup', 'Skip setup')}
               </Button>
             )}
           </div>
@@ -55,11 +60,11 @@ export function AutomaticProportionsPage() {
               state={{ alonePage: state.alonePage }}
               to="/onboarding/body-proportions/manual"
             >
-              Manual calibration
+              {t('automaticPropotions.manualCalibration', 'Manual calibration')}
             </Button>
             {!state.alonePage && (
               <Button variant="primary" to="/onboarding/done">
-                Continue
+                {t('common:continue', 'Continue')}
               </Button>
             )}
           </div>

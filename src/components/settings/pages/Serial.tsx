@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   CloseSerialRequestT,
   OpenSerialRequestT,
@@ -19,6 +20,8 @@ export interface WifiForm {
 }
 
 export function Serial() {
+  const { t } = useTranslation('settings');
+
   const {
     layoutHeight,
     layoutWidth,
@@ -78,10 +81,14 @@ export function Serial() {
 
   return (
     <div className="flex flex-col h-full gap-2 flex-grow bg-background-70 p-5 rounded-md">
-      <Typography variant="main-title">Serial Console</Typography>
+      <Typography variant="main-title">
+        {t('serialConsole.title', 'Serial Console')}
+      </Typography>
       <Typography color="secondary">
-        This is a live information feed for serial communication. May be useful
-        if you need to know the firmware is acting up.
+        {t(
+          'serialConsole.description',
+          'This is a live information feed for serial communication. May be useful if you need to know the firmware is acting up.'
+        )}
       </Typography>
       <div
         className="w-full bg-background-80 rounded-lg overflow-x-auto overflow-y-auto"
@@ -95,7 +102,10 @@ export function Serial() {
           <pre>
             {isSerialOpen
               ? consoleContent
-              : 'Connection to serial lost, Reconnecting...'}
+              : t(
+                  'serialConsole.lostConnection',
+                  'Connection to serial lost, Reconnecting...'
+                )}
           </pre>
         </div>
       </div>

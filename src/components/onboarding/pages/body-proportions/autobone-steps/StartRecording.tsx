@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from 'react-i18next';
 import { useAutobone } from '../../../../../hooks/autobone';
 import { Button } from '../../../../commons/Button';
 import { TipBox } from '../../../../commons/TipBox';
@@ -12,6 +13,7 @@ export function StartRecording({
   prevStep: () => void;
   variant: 'onboarding' | 'alone';
 }) {
+  const { t } = useTranslation('onboarding');
   const { startRecording } = useAutobone();
 
   const start = () => {
@@ -24,23 +26,23 @@ export function StartRecording({
       <div className="flex flex-col flex-grow">
         <div className="flex flex-grow flex-col gap-4 max-w-sm">
           <Typography variant="main-title" bold>
-            Get ready to move
+            {t('autoboneSteps.startRecording.title', 'Get ready to move')}
           </Typography>
           <div>
             <Typography color="secondary">
-              We're now going to record some specific poses and
-            </Typography>
-            <Typography color="secondary">
-              moves. These will be prompted in the next screen.
-            </Typography>
-            <Typography color="secondary">
-              Be ready to start when the button is pressed!
+              <Trans i18nKey="onboarding:autoboneSteps.startRecording.description">
+                We're now going to record some specific poses and <br />
+                moves. These will be prompted in the next screen. <br />
+                Be ready to start when the button is pressed!
+              </Trans>
             </Typography>
           </div>
           <div className="flex">
             <TipBox>
-              Make sure you do not move your heels, they must stay at the same
-              place while recording.
+              {t(
+                'autoboneSteps.startRecording.doNotMoveYourHeels',
+                'Make sure you do not move your heels, they must stay at the same place while recording.'
+              )}
             </TipBox>
           </div>
         </div>
@@ -50,10 +52,10 @@ export function StartRecording({
             variant={variant === 'onboarding' ? 'secondary' : 'tierciary'}
             onClick={prevStep}
           >
-            Previous step
+            {t('common:previousStep', 'Previous step')}
           </Button>
           <Button variant="primary" onClick={start}>
-            Start Recording
+            {t('autoboneSteps.startRecording.gotoNext', 'Start Recording')}
           </Button>
         </div>
       </div>

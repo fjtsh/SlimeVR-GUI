@@ -1,0 +1,120 @@
+{
+  "autoboneSteps": {
+    "done": {
+      "title": "測定が完了しました",
+      "description": "あなたのプロポーションのキャリブレーションは完了しました"
+    },
+    "preparation": {
+      "title": "測定の準備をする",
+      "description": "セットアップ中に座ることがあるため，<1></1>プレイスペース内の，自分のすぐ後ろに椅子を置いてください。",
+      "gotoNext": "椅子の前に立った"
+    },
+    "putTrackersOn": {
+      "title": "トラッカーを装着する",
+      "procedure": "あなたのプロポーションを知るために <1></1>割り当て済のトラッカーを使います。 <3></3>トラッカーを右図の対応する位置に装着してください。",
+      "gotoNext": "トラッカーを装着した"
+    },
+    "recording": {
+      "title": "測定中...",
+      "description": "以下の動きをしてください:",
+      "bendKnee": "膝を何度か曲げる",
+      "standUp": "椅子に座って立ち上がる",
+      "twistUpperBodyLeftThenBendRight": "上半身を左にひねってから，上半身を右に曲げます",
+      "twistUpperBodyRightThenBendLeft": "上半身を右にひねってから，上半身を左に曲げます",
+      "wiggleAround": "残り時間の間，体をくねくねさせてください",
+      "doNotMoveYourHeels": "測定のあいだ，かかとを動かさないようにしてください",
+      "processingTheResult": "測定結果の処理中",
+      "15SecLeft": "残り15秒"
+    },
+    "startRecording": {
+      "title": "測定の準備をする",
+      "description": "いくつかの特定のポーズや動きを測定します。<1></1>これらは次の画面で指示されます。<3></3>ボタンを押したら，すぐに測定が始まります！",
+      "doNotMoveYourHeels": "かかとを動かさないように注意してください。測定中，かかとは同じ場所に留まる必要があります",
+      "gotoNext": "測定開始"
+    },
+    "verifyResult": {
+      "title": "測定結果の確認",
+      "description": "測定が完了しました。測定結果は良好でしょうか？",
+      "recResults": "測定結果",
+      "prosessing": "測定結果の処理中...",
+      "redo": "測定をやり直す",
+      "gotoNext": "測定結果は良好です！"
+    }
+  },
+  "automaticPropotions": {
+    "goBack": "リセットの説明に戻る",
+    "title": "トラッカーを使った体形の測定",
+    "description": "SlimeVR Trackerを使う前にあなたの骨格を測定する必要があります。 <1></1>簡単なキャリブレーションであなたの骨格を測定します。",
+    "manualCalibration": "手動でキャリブレーションする"
+  },
+  "manualPropotions": {
+    "goBack": "リセットの説明に戻る",
+    "title": "手動での体形の入力",
+    "automaticCalibration": "自動キャリブレーションする"
+  },
+  "connectTracker": {
+    "goBackTo": "WiFi設定に戻る",
+    "title": "トラッカーを接続する",
+    "description": "それでは，おまちかねのトラッカー接続です！まだ接続したことがないトラッカーをUSBケーブルで接続してください。",
+    "gotoSerialConsole": "接続に問題があるときは...",
+    "nTrackersConnected": "{{number}} 台のトラッカーが接続済み",
+    "gotoNext": "すべてのトラッカーを接続した！"
+  },
+  "done": {
+    "title": "すべての準備が終わりました！",
+    "body": "フルトラをお楽しみください！",
+    "close": "ガイドを終了する"
+  },
+  "enterVr": {
+    "goBack": "トラッカーの割り当てに戻る",
+    "title": "Time to enter VR!",
+    "description": "それでは，トラッカーを身に着けてVRを始めましょう！",
+    "ready": "準備できた！"
+  },
+  "home": {
+    "welcome": "SlimeVRへようこそ",
+    "description": "フルトラをみんなのものへ",
+    "doSetup": "セットアップを始める"
+  },
+  "autoMount": {
+    "goBack": "Go Back to Enter VR",
+    "title": "マウントキャリブレーション！",
+    "description": "この機能はまだ実装されていません，「手動マウントへ」ボタンを押してください。",
+    "manuallySetMounting": "手動マウントへ",
+    "gotoNext": "次のステップへ"
+  },
+  "manualMount": {
+    "goBack": "Go Back to Enter VR",
+    "title": "手動でのマウント",
+    "description": "トラッカーをクリックして，マウントする方向を選択します",
+    "automaticMounting": "自動マウントへ",
+    "gotoNext": "次のステップへ"
+  },
+  "mountSelection": {
+    "title": "トラッカーをどこに取り付けますか？",
+    "close": "閉じる"
+  },
+  "resetTutorial": {
+    "goBack": "Go Back to Mounting calibration",
+    "description": "この機能はまだ実装されていません，「次へ」ボタンを押してください",
+    "gotoNext": "次へ"
+  },
+  "assignTracker": {
+    "goBack": "Wifi設定に戻る",
+    "title": "トラッカーの割り当て",
+    "description": "トラッカーをどこに取り付けるのかを決められます。トラッカーを取り付けたい位置をクリックしてください。",
+    "numberOfAssignedTracker": "<0>{{assignedCount}}</0><1>個のトラッカーが割り当て済です（{{trackerCount}}個中）</1>",
+    "gotoNext": "全部できた！"
+  },
+  "trackerSelection": {
+    "whichTrackerToAssignTo": "どのトラッカーを {{bodyPart}} に割り当てますか？",
+    "doNotAssign": "割り当てを解除する"
+  },
+  "wifiCreds": {
+    "goBack": "イントロダクションに戻る",
+    "title": "WiFiのパスワードを入力する",
+    "description": "トラッカーはWiFiを通じてPCと通信をしています。現在PCが接続しているWiFiルータのSSIDとパスワードを入力してください。",
+    "skipWifiSetting": "WiFi設定をスキップする",
+    "goNext": "入力できた!"
+  }
+}

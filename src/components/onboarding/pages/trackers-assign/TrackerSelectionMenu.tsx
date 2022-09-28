@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import ReactModal from 'react-modal';
+import { Trans, useTranslation } from 'react-i18next';
 import { BodyPart } from 'solarxr-protocol';
 import { FlatDeviceTracker } from '../../../../hooks/app';
 import { useElemSize, useLayout } from '../../../../hooks/layout';
@@ -30,6 +31,8 @@ export function TrackerSelectionMenu({
   const unassignedTrackers = useUnassignedTrackers();
   const assignedTrackers = useAssignedTrackers();
 
+  const { t } = useTranslation('onboarding');
+
   return (
     <ReactModal
       isOpen={isOpen}
@@ -46,7 +49,11 @@ export function TrackerSelectionMenu({
       <div className="flex w-full h-full flex-col ">
         <div className="flex w-full flex-col flex-grow items-center gap-3">
           <Typography variant="main-title" bold>
-            Which tracker to assign to the {BodyPart[bodyPart]}?
+            {t(
+              'trackerSelection.whichTrackerToAssignTo',
+              'Which tracker to assign to the {{bodyPart}}?',
+              { bodyPart: BodyPart[bodyPart] }
+            )}
           </Typography>
           <div className="relative">
             <div
@@ -108,13 +115,15 @@ export function TrackerSelectionMenu({
       >
         <div className="w-full max-w-sm">
           <TipBox>
-            Not sure which tracker is which? Shake a tracker and it will
-            highlight the corresponding item.
+            <Trans i18nKey={'common:tips.shakeTracker'}>
+              Not sure which tracker is which? Shake a tracker and it will
+              highlight the corresponding item.
+            </Trans>
           </TipBox>
         </div>
         <div className="flex flex-col justify-end pointer-events-auto">
           <Button variant="primary" onClick={() => onTrackerSelected(null)}>
-            Do not assign
+            {t('trackerSelection.doNotAssign', 'Do not assign')}
           </Button>
         </div>
       </div>

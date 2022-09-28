@@ -1,0 +1,32 @@
+{
+  "assignSingleTracker": {
+    "title": "トラッカーをどこに割り当てますか？",
+    "description": "トラッカーを割り当てる場所を選択してください。また，このようにひとつづつ管理せずに一度にすべてのトラッカーを管理することもできます。",
+    "gotoTrackerAssign": "トラッカー全体の管理へ",
+    "unassignTracker": "割り当てを解除する"
+  },
+  "setting": {
+    "manufacturer": "製造元",
+    "displayName": "表示名",
+    "customName": "カスタム表示名",
+    "goBack": "トラッカー一覧に戻る",
+    "title": "トラッカーの設定",
+    "assignment": {
+      "title": "割り当て場所",
+      "description": "このトラッカーが身体のどこに割り当てられているか",
+      "edit": "割り当てを編集"
+    }
+  },
+  "tracker": {
+    "position": {
+      "title": "取り付け場所",
+      "description": "このトラッカーをどうやってマウントしているか",
+      "edit": "マウントの編集"
+    },
+    "name": {
+      "title": "トラッカーの名前",
+      "description": "いい感じのニックネームを当ててください",
+      "placeholder": "NightyBeastのひだりあし（NightyBeastはこれの開発者です！）"
+    }
+  }
+}

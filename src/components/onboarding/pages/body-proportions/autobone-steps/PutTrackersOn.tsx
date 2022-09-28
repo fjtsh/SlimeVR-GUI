@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from 'react-i18next';
 import { useTrackers } from '../../../../../hooks/tracker';
 import { BodyDisplay } from '../../../../commons/BodyDisplay';
 import { BodyInteractions } from '../../../../commons/BodyInteractions';
@@ -7,6 +8,7 @@ import { TipBox } from '../../../../commons/TipBox';
 import { Typography } from '../../../../commons/Typography';
 
 export function PutTrackersOnStep({ nextStep }: { nextStep: () => void }) {
+  const { t } = useTranslation('onboarding');
   const { trackers } = useTrackers();
 
   return (
@@ -14,30 +16,35 @@ export function PutTrackersOnStep({ nextStep }: { nextStep: () => void }) {
       <div className="flex flex-col flex-grow">
         <div className="flex flex-grow flex-col gap-4 max-w-sm">
           <Typography variant="main-title" bold>
-            Put on your trackers
+            {t('autoboneSteps.putTrackersOn.title', 'Put on your trackers')}
           </Typography>
           <div>
             <Typography color="secondary">
-              To calibrate your proportions, we're gonna use the
-            </Typography>
-            <Typography color="secondary">
-              trackers you just assigned. Put on all your trackers,
-            </Typography>
-            <Typography color="secondary">
-              you can see which are which in the figure to the right.
+              <Trans
+                i18nKey={'onboarding:autoboneSteps.putTrackersOn.procedure'}
+              >
+                To calibrate your proportions, we're gonna use the <br />
+                trackers you just assigned. Put on all your trackers, <br />
+                you can see which are which in the figure to the right.
+              </Trans>
             </Typography>
           </div>
           <div className="flex">
             <TipBox>
-              Not sure which tracker is which? Shake a tracker and it will
-              highlight the corresponding item.
+              <Trans i18nKey={'common:tips.shakeTracker'}>
+                Not sure which tracker is which? Shake a tracker and it will
+                highlight the corresponding item.
+              </Trans>
             </TipBox>
           </div>
         </div>
 
         <div className="flex">
           <Button variant="primary" onClick={nextStep}>
-            I have all my trackers on
+            {t(
+              'autoboneSteps.putTrackersOn.gotoNext',
+              'I have all my trackers on'
+            )}
           </Button>
         </div>
       </div>

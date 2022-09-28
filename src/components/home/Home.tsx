@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { TrackerDataT } from 'solarxr-protocol';
 import { useConfig } from '../../hooks/config';
 import { useTrackers } from '../../hooks/tracker';
@@ -11,6 +12,7 @@ export function Home() {
   const { config } = useConfig();
   const { useAssignedTrackers, useUnassignedTrackers } = useTrackers();
   const navigate = useNavigate();
+  const { t } = useTranslation('home');
 
   const assignedTrackers = useAssignedTrackers();
   const unasignedTrackers = useUnassignedTrackers();
@@ -31,7 +33,7 @@ export function Home() {
       {trackers.length === 0 && (
         <div className="flex px-5 pt-5 justify-center">
           <Typography variant="standard">
-            No trackers detected or assigned
+            {t('noTrackerFound', 'No trackers detected or assigned')}
           </Typography>
         </div>
       )}

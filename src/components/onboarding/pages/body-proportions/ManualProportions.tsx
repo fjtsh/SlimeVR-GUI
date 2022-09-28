@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useOnboarding } from '../../../../hooks/onboarding';
 import { ArrowLink } from '../../../commons/ArrowLink';
@@ -8,6 +9,7 @@ import { Typography } from '../../../commons/Typography';
 import { BodyProportions } from './BodyProportions';
 
 export function ManualProportionsPage() {
+  const { t } = useTranslation('onboarding');
   const { applyProgress, skipSetup, state } = useOnboarding();
 
   applyProgress(0.9);
@@ -26,11 +28,11 @@ export function ManualProportionsPage() {
               <div className="flex flex-col">
                 {!state.alonePage && (
                   <ArrowLink to="/onboarding/reset-tutorial" direction="left">
-                    Go Back to Reset tutorial
+                    {t('manualPropotions.goBack', 'Go Back to Reset tutorial')}
                   </ArrowLink>
                 )}
                 <Typography variant="main-title">
-                  Manual Body Proportions
+                  {t('manualPropotions.title', 'Manual Body Proportions')}
                 </Typography>
                 <CheckBox
                   control={control}
@@ -53,7 +55,7 @@ export function ManualProportionsPage() {
           <div className="flex flex-grow">
             {!state.alonePage && (
               <Button variant="secondary" to="/" onClick={skipSetup}>
-                Skip setup
+                {t('common:skipSetup', 'Skip setup')}
               </Button>
             )}
           </div>
@@ -63,11 +65,14 @@ export function ManualProportionsPage() {
               state={{ alonePage: state.alonePage }}
               to="/onboarding/body-proportions/auto"
             >
-              Automatic calibration
+              {t(
+                'manualPropotions.automaticCalibration',
+                'Automatic calibration'
+              )}
             </Button>
             {!state.alonePage && (
               <Button variant="primary" to="/onboarding/done">
-                Continue
+                {t('common:continue', 'Continue')}
               </Button>
             )}
           </div>

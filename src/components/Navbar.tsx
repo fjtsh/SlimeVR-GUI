@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import { ReactChild } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useMatch, NavLink } from 'react-router-dom';
 import { CubeIcon } from './commons/icon/CubeIcon';
 import { GearIcon } from './commons/icon/GearIcon';
@@ -56,11 +57,13 @@ export function NavButton({
 }
 
 export function Navbar() {
+  const { t } = useTranslation('navbar');
+
   return (
     <div className="flex flex-col px-2 pt-2">
       <div className="flex flex-col flex-grow gap-2">
         <NavButton to="/" icon={<CubeIcon></CubeIcon>}>
-          Home
+          {t('home', 'Home')}
         </NavButton>
         <NavButton
           to="/onboarding/body-proportions/auto"
@@ -68,14 +71,14 @@ export function Navbar() {
           state={{ alonePage: true }}
           icon={<GearIcon></GearIcon>}
         >
-          Body proportions
+          {t('bodyPropotions', 'Body proportions')}
         </NavButton>
         <NavButton
           to="/onboarding/trackers-assign"
           state={{ alonePage: true }}
           icon={<GearIcon></GearIcon>}
         >
-          Tracker assignment
+          {t('trackerAssignment', 'Tracker assignment')}
         </NavButton>
         <NavButton
           to="/onboarding/mounting/auto"
@@ -83,10 +86,10 @@ export function Navbar() {
           state={{ alonePage: true }}
           icon={<GearIcon></GearIcon>}
         >
-          Mounting Calibration
+          {t('mountingCalibration', 'Mounting Calibration')}
         </NavButton>
         <NavButton to="/onboarding/home" icon={<GearIcon></GearIcon>}>
-          Setup Wizard
+          {t('setupWizard', 'Setup Wizard')}
         </NavButton>
       </div>
       <NavButton
@@ -95,7 +98,7 @@ export function Navbar() {
         state={{ scrollTo: 'steamvr' }}
         icon={<GearIcon></GearIcon>}
       >
-        Settings
+        {t('settings', 'Settings')}
       </NavButton>
     </div>
   );

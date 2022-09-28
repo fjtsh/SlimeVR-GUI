@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { MouseEventHandler } from 'react';
 import ReactModal from 'react-modal';
+import { useTranslation } from 'react-i18next';
 import { useElemSize, useLayout } from '../../../../hooks/layout';
 import { Button } from '../../../commons/Button';
 import { FootIcon } from '../../../commons/icon/FootIcon';
@@ -37,6 +38,7 @@ export function MountingSelectionMenu({
   onClose: () => void;
   onDirectionSelected: (direction: number) => void;
 }) {
+  const { t } = useTranslation('onboarding');
   const { ref: refTrackers, layoutHeight: trackersHeight } =
     useLayout<HTMLDivElement>();
   const { ref: refOptions, height: optionsHeight } =
@@ -57,7 +59,7 @@ export function MountingSelectionMenu({
     >
       <div className="flex w-full h-full flex-col ">
         <Typography variant="main-title" bold>
-          Where do you want this tracker to be?
+          {t('mountSelection.title', 'Where do you want this tracker to be?')}
         </Typography>
         <div
           className="flex w-full flex-col flex-grow items-center gap-3 justify-center"
@@ -91,7 +93,7 @@ export function MountingSelectionMenu({
       >
         <div className="flex flex-col justify-end pointer-events-auto">
           <Button variant="primary" onClick={onClose}>
-            Close
+            {t('mountSelection.close', 'Close')}
           </Button>
         </div>
       </div>

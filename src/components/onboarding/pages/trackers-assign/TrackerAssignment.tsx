@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Trans, useTranslation } from 'react-i18next';
 import {
   AssignTrackerRequestT,
   BodyPart,
@@ -20,6 +21,7 @@ import { BodyAssignment } from '../../BodyAssignment';
 import { TrackerSelectionMenu } from './TrackerSelectionMenu';
 
 export function TrackersAssignPage() {
+  const { t } = useTranslation('onboarding');
   const { useAssignedTrackers, trackers } = useTrackers();
   const { applyProgress, skipSetup, state } = useOnboarding();
   const { sendRPCPacket } = useWebsocketAPI();
@@ -97,27 +99,44 @@ export function TrackersAssignPage() {
             <div className="flex flex-col max-w-sm gap-3">
               {!state.alonePage && (
                 <ArrowLink to="/onboarding/wifi-creds" direction="left">
-                  Go Back to Wifi Credentials
+                  {t('assignTracker.goBack', 'Go Back to Wifi Credentials')}
                 </ArrowLink>
               )}
-              <Typography variant="main-title">Assign trackers</Typography>
+              <Typography variant="main-title">
+                {t('assignTracker.title', 'Assign trackers')}
+              </Typography>
               <Typography color="secondary">
-                Let's choose which tracker goes where. Click on a location where
-                you want to place a tracker
+                {t(
+                  'assignTracker.description',
+                  "Let's choose which tracker goes where. Click on a location where you want to place a tracker"
+                )}
               </Typography>
               <div className="flex gap-1">
-                <Typography>{assignedTrackers.length}</Typography>
-                <Typography color="secondary">
-                  of {trackers.length} trackers assigned
-                </Typography>
+                <Trans
+                  i18nKey="onboarding:assignTracker.numberOfAssignedTracker"
+                  values={{
+                    assignedCount: assignedTrackers.length,
+                    trackerCount: trackers.length,
+                  }}
+                >
+                  <Typography>{'{{assignedCount}}'}</Typography>
+                  <Typography color="secondary">
+                    {'of {{trackerCount}} trackers assigned'}
+                  </Typography>
+                </Trans>
               </div>
               <TipBox>
-                Not sure which tracker is which? Shake a tracker and it will
-                highlight the corresponding item.
+                <Trans i18nKey={'common:tips.shakeTracker'}>
+                  Not sure which tracker is which? Shake a tracker and it will
+                  highlight the corresponding item.
+                </Trans>
               </TipBox>
               <CheckBox
                 control={control}
-                label="Show advanced assign locations"
+                label={t(
+                  'common:showAdvAssignLoc',
+                  'Show advanced assign locations'
+                )}
                 name="advanced"
                 variant="toggle"
               ></CheckBox>
@@ -135,14 +154,14 @@ export function TrackersAssignPage() {
           <div className="flex flex-grow">
             {!state.alonePage && (
               <Button variant="secondary" to="/" onClick={skipSetup}>
-                Skip setup
+                {t('common:skipSetup', 'Skip setup')}
               </Button>
             )}
           </div>
           <div className="flex gap-3">
             {!state.alonePage && (
               <Button variant="primary" to="/onboarding/enter-vr">
-                I Assigned all the trackers
+                {t('assignTracker.gotoNext', 'I Assigned all the trackers')}
               </Button>
             )}
           </div>

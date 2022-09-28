@@ -1,10 +1,14 @@
 import * as ReactDOMClient from 'react-dom/client';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/700.css';
+import '@fontsource/noto-sans-jp/300.css';
+import '@fontsource/noto-sans-jp/500.css';
 import './index.css';
 import App from './App';
 import Modal from 'react-modal';
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './locales/i18n';
 
 Modal.setAppElement('#root');
 
@@ -14,7 +18,9 @@ if (container) {
   const root = ReactDOMClient.createRoot(container);
   root.render(
     <React.StrictMode>
-      <App />
+      <I18nextProvider i18n={i18n}>
+        <App />
+      </I18nextProvider>
     </React.StrictMode>
   );
 }
