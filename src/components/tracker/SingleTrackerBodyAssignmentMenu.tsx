@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import ReactModal from 'react-modal';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { BodyPart } from 'solarxr-protocol';
 import { Button } from '../commons/Button';
 import { CheckBox } from '../commons/Checkbox';

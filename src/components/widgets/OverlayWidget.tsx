@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   OverlayDisplayModeChangeRequestT,
   OverlayDisplayModeRequestT,
@@ -10,6 +11,8 @@ import { useWebsocketAPI } from '../../hooks/websocket-api';
 import { CheckBox } from '../commons/Checkbox';
 
 export function OverlayWidget() {
+  const { t } = useTranslation('overlayWidget');
+
   const { sendRPCPacket, useRPCPacket } = useWebsocketAPI();
 
   const { reset, control, handleSubmit, watch, setValue } = useForm<{
@@ -57,13 +60,13 @@ export function OverlayWidget() {
         control={control}
         name="isVisible"
         variant="toggle"
-        label="Show overlay in SteamVR"
+        label={t('showOverlay', 'Show overlay in SteamVR')}
       ></CheckBox>
       <CheckBox
         control={control}
         name="isMirrored"
         variant="toggle"
-        label="display overlay as mirror"
+        label={t('DisplayOverlayAsMirror', 'Display overlay as mirror')}
       ></CheckBox>
     </form>
   );
